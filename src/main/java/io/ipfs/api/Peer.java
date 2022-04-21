@@ -28,7 +28,9 @@ public class Peer {
         Map m = (Map) json;
         Function<String, String> val = key -> (String) m.get(key);
         long latency = val.apply("Latency").length() > 0 ? Long.parseLong(val.apply("Latency")) : -1;
-        return new Peer(new MultiAddress(val.apply("Addr")), Cid.decode(val.apply("Peer")), latency, val.apply("Muxer"), val.apply("Streams"));
+        System.out.println(val.apply("Peer"));
+//        Cid.decode(val.apply("Peer"));
+        return new Peer(new MultiAddress(val.apply("Addr")), null, latency, val.apply("Muxer"), val.apply("Streams"));
     }
 
     @Override

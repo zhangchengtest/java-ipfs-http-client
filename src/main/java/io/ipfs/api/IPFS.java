@@ -510,6 +510,7 @@ public class IPFS {
                         try {
                             return Stream.of(Peer.fromJSON(json));
                         } catch (Exception e) {
+                        	e.printStackTrace();
                             return Stream.empty();
                         }
                     }).collect(Collectors.toList());
